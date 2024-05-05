@@ -1,0 +1,33 @@
+img{
+	max-width: 100%;
+}
+.gallery{
+
+	padding: 80px 0;
+}
+.gallery img{
+	background-color: #ffffff;
+	padding: 15px;
+	width: 100%;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+#gallery-modal .modal-img{
+	width: 100%;
+}
+
+.color-changing {
+	background-color: rgb(46, 204, 113); /* Background color in RGB format */
+   /* Initial background color */
+	  animation: changeColor 15s infinite; /* Animation with a duration of 15 seconds, repeating infinitely */
+  }
+  
+  @keyframes changeColor {
+	  0% { background-color: rgb(75, 192, 123); } /* Start with green */
+	  25% { background-color: rgb(69, 197, 152); } /* Change to sky blue after 5 seconds */
+	  50% { background-color: rgb(111, 204, 119); } /* Change to light yellow after 10 seconds */
+	  75% { background-color: rgb(57, 150, 106); } /* Change to light pink after 15 seconds */
+	  100% { background-color: rgb(75, 192, 123); } /* Back to green after 20 seconds */
+  }
+  
+  

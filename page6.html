@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Testimonials</title>
+</head>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+footer {
+    background: linear-gradient(180deg, #012e29 0%, #00897b 100%);
+    margin-top: auto;
+    width: 100%;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0, 9;
+}
+
+/* Hover affect on social media icon */
+.socialIcons a:hover {
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+    color: white;
+    transition: 0.5s;
+}
+
+.footerNav {
+    margin: 30px 0;
+}
+
+.footerNav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.footerNav ul li a {
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footerNav ul li a:hover {
+    opacity: 1;
+}
+
+.footerBottom {
+    background-color: 00897b;
+    padding: 20px;
+    text-align: center;
+}
+
+.footerBottom p {
+    color: white;
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+@media (max-width: 700px) {
+    .footerNav ul {
+        flex-direction: column;
+    }
+
+    .footerNav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+
+    .socialIcons a {
+        padding: 8px;
+        margin: 4px;
+    }
+}
+
+.header {
+    display: block;
+    position: sticky;
+    width: 100%;
+    box-shadow: none;
+    background: linear-gradient(180deg, #012e29 0%, #00897b 100%);
+    position: fixed;
+    height: 60px!important;
+    overflow: hidden;
+    z-index: 10;
+    text-align: center;
+    
+}
+
+.header h1 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    color:  #31867d;
+    transition: color 0.3s; 
+}
+
+
+.header h1:hover {
+    color: #84d2ca;
+}
+
+.titlecover {
+    text-align: center;
+    width: 250px;
+    position: fixed;
+    transition: transform 250ms ease-in-out;
+    background: linear-gradient(#00fff7 0%, #F1948A 50%, #EC7063 100%);
+}
+
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+}
+
+.mainInner {
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.mainInner div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    margin-top: 50px;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+    background: linear-gradient(180deg, #012e29 0%, #00897b 100%);
+}
+
+.sidebarMenuInner {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.sidebarMenuInner li {
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.sidebarMenuInner li span {
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.sidebarMenuInner li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input[type="checkbox"]:checked~#sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: fixed;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: fixed;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+input[type=checkbox]:checked~.sidebarIconToggle>.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+
+input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+
+input[type=checkbox]:checked~.sidebarIconToggle>.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+.wrapper {
+    text-align: center;
+    margin: auto;
+    max-width: 60%;
+    background-color: lightblue;
+
+}
+
+.header:hover {
+    background: linear-gradient(180deg, #012e29 0%, #00695c 100%);
+}
+
+.sidebarMenuInner li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wrapper:hover {
+    background-color: lightcyan;
+}
+.container {
+    border: 2px solid rgb(206, 234, 218); 
+    text-align: center;
+    background: linear-gradient(180deg, #b9e7e3 0%, #36ccbd 100%);
+    margin-bottom: -30px;
+
+    padding: 50px;
+
+}
+.review-body {   
+    padding: 50px;
+
+
+}
+
+.circular-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 35%;
+    overflow: hidden;
+    border: 2px solid rgb(206, 234, 218); 
+    padding: 2px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+  }
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-justify {
+    text-align: justify;
+}
+
+.review-text h1,h3 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    color: #3a8a82;
+    transition: color 0.3s; 
+    font-size: 90px; 
+}
+
+.container.h1 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    transition: color 1.3s; 
+
+
+}
+
+.container.p {
+    font-family: 'Roboto', sans-serif; 
+
+
+
+}
+.container h1:hover {
+    color: #469a94;
+}
+.review-body h2 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    color: #3a8a82;
+    transition: color 0.3s; 
+}
+
+.review-body h2:hover {
+    color: #0a2523;
+}
+
+.review-body p {
+    font-family: 'Roboto', sans-serif; 
+    transition: color 0.3s; 
+
+}
+.review-body p:hover {
+    font-weight: 700; 
+
+
+}
+
+.review-text h1:hover {
+    color: #0a2523;
+}
+.review-text h3:hover {
+    color: #0a2523;
+}
+
+
+@media (max-width: 576px) {
+
+    .review-text h1,h3 {
+        font-size: 30px;
+
+        
+    }
+    
+}
+
+
+
+
+.long-hr {
+    border-top: 5px solid #000000;
+    width: 100%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* Aspect ratio: 16:9 */
+    width: 100%;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.star-rating {
+        font-size: 36px; 
+        transition: font-size 0.3s; 
+    }
+
+    
+    .star-rating:hover {
+        font-size: 46px; 
+    }
+    .color-changing {
+  background-color: rgb(46, 204, 113); /* Background color in RGB format */
+ /* Initial background color */
+    animation: changeColor 15s infinite; /* Animation with a duration of 15 seconds, repeating infinitely */
+}
+
+    @keyframes changeColor {
+    0% { background-color: rgb(75, 192, 123); } /* Start with green */
+    25% { background-color: rgb(69, 197, 152); } /* Change to sky blue after 5 seconds */
+    50% { background-color: rgb(111, 204, 119); } /* Change to light yellow after 10 seconds */
+    75% { background-color: rgb(57, 150, 106); } /* Change to light pink after 15 seconds */
+    100% { background-color: rgb(75, 192, 123); } /* Back to green after 20 seconds */
+}
+
+
+</style>
+<body class="color-changing" style="background-color: #84d2ca;">
+
+    
+
+    <div class="header">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3"></div>
+            <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block"><h1>WELCH ALLYN STORE</h1></div>
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <img class="logo" src="logo.png" alt="logo" style="float:right; margin-right: 20px; margin-top: -20px;" width="100px" height="100px" usemap="#logoMap">
+                <map name="logoMap">
+                    <area shape="rect" coords="0,0, 398,398" href="page1.html" alt="About Us">
+                </map>
+            </div>
+        </div>
+    </div>
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle"> 
+          <div class="spinner diagonal part-1"></div>
+          <div class="spinner horizontal"></div>
+          <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+          <ul class="sidebarMenuInner">
+            <li>JENLEEJETLEE<span>Dry Goods Store</span></li>
+      
+        <li><a href="page1.html" target="_blank">About Us</a></li>
+        <li><a href="page2.html" target="_blank">Products</a></li>
+        <li><a href="page3.html" target="_blank">Services</a></li>
+        <li><a href="page4.html" target="_blank">Gallery</a></li>
+        <li><a href="page5.html" target="_blank">Contact Us</a></li>
+        <li><a href="page6.html" target="_blank">Testimonials</a></li>
+        <li><a href="page7.html" target="_blank">FAQs</a></li>
+            
+          </ul>
+        </div>
+      </div>
+   
+
+      <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row review-text">
+            <div class="col-sm-4 col-md-3 col-lg-3"></div>
+            <div class="col-sm-4 col-md-6 col-lg-6">
+                <h1>REVIEWS</h1>
+            </div>
+
+        
+            <div class="col-sm-4 col-md-3 col-lg-3"></div>
+        </div>
+        <br>
+        <br>
+        <hr class="long-hr">
+        <div class="review-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Darwin Vocal</h1>
+                    <h1 style="color: yellow; " class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">I recently purchased a pitcher from Welch Allyn Store, and I must say, it exceeded my expectations. The quality is superb, and it adds a touch of elegance to my kitchen. I highly recommend it to anyone looking for high-quality kitchenware.</p>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Mhar Celestra</h1>
+                    <h1 style="color: yellow; " class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">I've been shopping at Welch Allyn Store for years, and I'm always impressed by their products and customer service. The hangers I bought from them are durable and stylish. Plus, the staff is friendly and knowledgeable. It's my go-to store for all my household needs.</p>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Cresensio Vital</h1>
+                    <h1 style="color: yellow;" class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">I stumbled upon Welch Allyn Store while searching for kitchen essentials online, and I'm so glad I did! The variety of products available is impressive, and the prices are reasonable. I purchased a set of water jugs, and they arrived promptly and in perfect condition. I'll definitely be shopping here again.</p>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Ellaine Loyola</h1>
+                    <h1 style="color: yellow;" class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">As an interior designer, I'm always on the lookout for unique and stylish home decor items. Welch Allyn Store never disappoints! Their collection of utility boxes and racks is fantastic, and they have become staples in many of my projects. The quality and craftsmanship are top-notch.</p>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Bless Shimae Nabong</h1>
+                    <h1 style="color: yellow;" class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">I recently purchased a set of slippers for my family from Welch Allyn Store, and they are incredibly comfortable! The material is soft yet durable, and they fit perfectly. Even my kids love them! Thank you for providing such high-quality products.</p>
+                </div>
+            </div>
+            <br>
+            <hr>    
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-5 center-image">
+                    <img class="circular-image" src="defualt.jpg" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7">
+                    <h1>Michael Vocal</h1>
+                    <h1 style="color: yellow;" class="star-rating">★ ★ ★ ★ ★</h1>
+                    <p class="text-justify">I've been a loyal customer of Welch Allyn Store for years, and they never disappoint. Whether it's kitchenware, home decor, or personal accessories, they have it all. The customer service is exceptional, and the staff is always ready to assist. I highly recommend Welch Allyn Store to anyone looking for quality products and excellent service.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footerContainer">
+            
+            <div class="footerNav">
+                <ul><li><a href="page1.html">Home</a></li>
+                    <li><a href="page2.html">Products</a></li>
+                    <li><a href="page4.html">Gallery</a></li>
+                    <li><a href="page6.html">Testemonials</a></li>
+                    <li><a href="page5.html">Contact Us</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+    
+       
+    
+        <div class="footerBottom">
+            <p>Copyright &copy;2024 <span>WELCH ALLYN STORE</span></p>
+        </div>
+    </footer>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
